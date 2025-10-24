@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder searchable configuration for TV voice search integration.
+     TODO: Replace label/hint and implement real search handling if voice search is used. -->
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    android:label="@string/app_name"
+    android:hint="@string/app_name"
+    android:includeInGlobalSearch="true"
+    android:searchMode="queryRewriteFromText"
+    android:voiceSearchMode="showVoiceSearchButton|launchRecognizer" />

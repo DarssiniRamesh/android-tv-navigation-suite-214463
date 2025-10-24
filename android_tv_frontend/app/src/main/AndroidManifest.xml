@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- TV device capabilities -->
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <!-- Network access commonly required by TV apps (content, images, etc.) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Voice search (placeholder). If voice features are implemented, keep this.
+         If not used, you may remove RECORD_AUDIO to avoid permission prompts. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:label="@string/app_name"
+        android:banner="@drawable/tv_banner"> <!-- TODO: Provide a proper TV banner asset (e.g., 320x180). Placeholder drawable should be added by a future change. -->
+
+        <!-- Main TV-compatible launch activity with both standard and Leanback launchers -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:resizeableActivity="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <!-- Standard launcher (some devices still look for this) -->
+                <category android:name="android.intent.category.LAUNCHER" />
+                <!-- Leanback launcher for Android TV home screen -->
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+
+            <!-- Link to searchable config for voice search integration (placeholder) -->
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+
+        <!-- Recognizer/voice search integration (placeholder).
+             If you implement a custom recognition service or SearchActivity, declare here.
+             For now, we only provide searchable metadata for global search interoperability. -->
+        <!--
+        <service
+            android:name=".voice.RecognitionService"
+            android:permission="android.permission.BIND_SPEECH_RECOGNIZER">
+            <intent-filter>
+                <action android:name="android.speech.RecognitionService" />
+            </intent-filter>
+        </service>
+        -->
+    </application>
+</manifest>
